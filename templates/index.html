@@ -2,35 +2,35 @@
 
 {%block body%}
 
-<h1>Telugu Bible Index</h1>
-<form action="/getbible" method="get">
-    <label for="book">Select Book:</label>
-    <select name="book" id="book">
-        <option disabled selected value="">Book</option>
-        {% for book in books %}
-        <option value="{{ book }}">{{ book }}</option>
+<h1 class="heading">Telugu Bible Index</h1>
+<div class="form-container">
+    <form action="/getbible" method="get">
+        <div class="form">
+            <label class="text" for="book">Select Book:</label>
+        <select name="book" class="input" id="book">
+            <option disabled selected value="">Book</option>
+            {% for book in books %}
+            <option value="{{ book }}">{{ book }}</option>
+            {% endfor %}
+        </select>
+        <label class="text" for="chapter_no">Chapter:</label>
+        <input class= "input" type="number" id="chapter_no" name="chapter_no" placeholder="Chapter Number" required>
+
+        <label class="text" for="verse_no">Verse:</label>
+        <input  class="input" type="number" id="verse_no" name="verse_no" placeholder="Verse Number" required>
+
+        <button class="vbutton" type="submit">Get Verse</button>
+        </div> 
+    </form>
+</div>
+<div class="result">
+    <ol class="items">
+        {%for verse in result %}
+        <li class="item">{{verse}}</li>
         {% endfor %}
-    </select>
+    </ol>
+</div>
 
-    <label for="chapter_no">Chapter:</label>
-    <input type="number" id="chapter_no" name="chapter_no" placeholder="Chapter Number" required>
-
-    <label for="verse_no">Verse:</label>
-    <input type="number" id="verse_no" name="verse_no" placeholder="Verse Number" required>
-
-    <button type="submit">Get Verse</button>
-    
-</form>
-<ol>
-    {%for verse in result %}
-    {% if loop.index == verse_no %}
-    high=highlight
-    {% endif %}
-    <li class={{high}}>{{verse}}</li>
-    {% endfor %}
-
-</ol>
-<p class="highlight">{{verse_no}}</p>
 
     
 {%endblock%}
