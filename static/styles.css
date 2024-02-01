@@ -3,27 +3,33 @@ body {
     margin: 0;
     padding: 0;
     background-image: url('./imgs/white.jpg'); 
-    background-position: center;
     background-size: cover;
     background-repeat: no-repeat; 
+    background-attachment: fixed;
     font-family: 'Arial', sans-serif; 
     color: #333; 
 }
 
-
+@media only screen and (max-width: 767px) {
+    body {
+      
+      background-size: contain; 
+      background-attachment: scroll; 
+    }
+  }
 
 .form-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 50vh;
+    font-family: 'IBM Plex Mono', monospace;
 }
 
 .form {
     max-width: 400px;
     padding: 20px;
     background-color: #f4f4f4;
-
     border-radius: 10px;
     box-shadow: 0 20px 40px rgba(38,33,61,0.2);
 }
@@ -46,7 +52,7 @@ body {
 
 
 .vbutton {
-    background-color: #007BFF;
+    background-color: #0CDFA0;
     color: #fff;
     padding: 10px;
     border: none;
@@ -55,7 +61,8 @@ body {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #08BD87;
+    box-shadow: 1px 1px rgba(38,33,61,0.2);
 }
 
 
@@ -67,12 +74,15 @@ button:hover {
 
 .result {
     max-width: 900px;
-    background-color:rgba(0,0,0,0.1);
-    margin: 20px auto;
+    background-color: #fff;
+    margin: 10px auto;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 8px;
     overflow-y: auto;
+    box-shadow: 0 20px 40px rgba(38,33,61,0.2);
+    font-family: 'Noto Sans Telugu', sans-serif;
+    
 }
 
 
@@ -85,14 +95,27 @@ button:hover {
 .item {
     margin-bottom: 10px;
     line-height: 1.4;
+    font-size: 20px;
+    line-height: 1.5;
+    color: #111;
+    margin-bottom: 10px;
 }
 
 
 .heading {
-    color: #333; 
+    color: #0CDFA0; 
     font-size: 2em; 
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    text-shadow:1px 1px  #111;
+    padding:10px;
     font-weight: bold;
     text-transform: uppercase; 
+    font-family: 'Pacifico', cursive;
+    background-color: #fff;
+    box-shadow: 1px 1px rgba(38,33,61,0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
+
